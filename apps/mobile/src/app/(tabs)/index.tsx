@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, StyleSheet } from "react-native";
+import { View, ScrollView, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { colors } from "@/constants/color";
@@ -7,9 +7,13 @@ import HomeHeader from "@/features/home/components/HomeHeader";
 import DailyProgress from "@/features/home/components/DailyProgress";
 import ActiveTaskCard from "@/features/home/components/ActiveTaskCard";
 import TaskSection from "@/features/home/components/TaskSection";
+import UpcomingSection from "@/features/home/components/UpcomingSection";
 import HomeBottomNav from "@/features/home/components/HomeBottomNav";
 
-import { mockTasks } from "@/features/home/data/mockTasks";
+import {
+  mockTasks,
+  upcomingTasks,
+} from "@/features/home/data/mockTasks";
 
 export default function HomeScreen() {
   const unfinishedTasks = mockTasks.filter((task) => !task.completed);
@@ -38,10 +42,12 @@ export default function HomeScreen() {
           />
 
           <TaskSection
-            title="Done"
+            title="Completed"
             tasks={completedTasks}
-            color="#A5D6A7"
+            color={colors.primary}
           />
+
+          <UpcomingSection items={upcomingTasks} />
         </ScrollView>
 
         <HomeBottomNav />
@@ -62,8 +68,9 @@ const styles = StyleSheet.create({
   },
 
   scrollContent: {
-    padding: 20,
-    gap: 24,
-    paddingBottom: 30,
+    paddingHorizontal: 20,
+    paddingTop: 16,
+    paddingBottom: 24,
+    gap: 22,
   },
 });

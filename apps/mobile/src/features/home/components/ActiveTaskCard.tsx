@@ -1,46 +1,36 @@
 import { View, Text, StyleSheet } from "react-native";
-import { CircleCheck, Clock, Pause, Play } from "lucide-react-native";
+import { Clock, Pause, Check } from "lucide-react-native";
 import { colors } from "@/constants/color";
 
 export default function ActiveTaskCard() {
   return (
     <View style={styles.container}>
-      <View style={styles.statusRow}>
+      <View style={styles.header}>
         <View style={styles.status}>
-          <Play size={14} color={colors.primary} fill={colors.primary} />
+          <View style={styles.dot} />
           <Text style={styles.statusText}>In Progress</Text>
         </View>
       </View>
 
       <Text style={styles.title}>Study Java Collections</Text>
 
-      <View style={styles.category}>
-        <Text style={styles.categoryText}>University</Text>
-      </View>
-
-      <View style={styles.details}>
-        <View style={styles.info}>
-          <Clock size={16} color="rgba(255,255,255,0.7)" />
-          <Text style={styles.infoText}>45 min</Text>
-        </View>
-
-        <Text style={styles.infoText}>Today</Text>
-      </View>
-
-      <View style={styles.timerArea}>
-        <View style={styles.timer}>
-          <Text style={styles.timerText}>24:18</Text>
-          <Text style={styles.timerCaption}>left</Text>
-        </View>
+      <View style={styles.meta}>
+        <Clock size={14} color="rgba(255,255,255,0.55)" />
+        <Text style={styles.metaText}>45 min</Text>
+        <Text style={styles.separator}>·</Text>
+        <Text style={styles.metaText}>24:18 left</Text>
       </View>
 
       <View style={styles.actions}>
         <View style={styles.pauseButton}>
-          <Pause size={18} color={colors.white} />
+          <Pause size={16} color={colors.white} />
           <Text style={styles.pauseText}>Pause</Text>
         </View>
 
-        
+        <View style={styles.completeButton}>
+          <Check size={17} color={colors.foreground} />
+          <Text style={styles.completeText}>Complete</Text>
+        </View>
       </View>
     </View>
   );
@@ -48,14 +38,15 @@ export default function ActiveTaskCard() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "rgba(157,101,253,0.12)",
+    backgroundColor: "rgba(157,101,253,0.09)",
     borderWidth: 1,
-    borderColor: "rgba(157,101,253,0.22)",
-    borderRadius: 24,
-    padding: 18,
+    borderColor: "rgba(157,101,253,0.18)",
+    borderRadius: 20,
+    padding: 16,
+    gap: 12,
   },
 
-  statusRow: {
+  header: {
     flexDirection: "row",
     justifyContent: "space-between",
   },
@@ -63,93 +54,53 @@ const styles = StyleSheet.create({
   status: {
     flexDirection: "row",
     alignItems: "center",
-    gap: 6,
+    gap: 7,
+  },
+
+  dot: {
+    width: 8,
+    height: 8,
+    borderRadius: 4,
+    backgroundColor: colors.primary,
   },
 
   statusText: {
     color: colors.primary,
-    fontSize: 13,
     fontWeight: "700",
+    fontSize: 13,
   },
 
   title: {
     color: colors.white,
     fontSize: 17,
     fontWeight: "700",
-    marginTop: 16,
   },
 
-  category: {
-    alignSelf: "flex-start",
-    backgroundColor: "rgba(255,255,255,0.12)",
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-    borderRadius: 20,
-    marginTop: 10,
-  },
-
-  categoryText: {
-    color: colors.white,
-    fontSize: 12,
-  },
-
-  details: {
+  meta: {
     flexDirection: "row",
     alignItems: "center",
-    gap: 18,
-    marginTop: 14,
+    gap: 7,
   },
 
-  info: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 6,
-  },
-
-  infoText: {
-    color: "rgba(255,255,255,0.7)",
+  metaText: {
+    color: "rgba(255,255,255,0.65)",
     fontSize: 13,
   },
 
-  timerArea: {
-    alignItems: "flex-end",
-    marginTop: -65,
-    marginBottom: 25,
-  },
-
-  timer: {
-    width: 90,
-    height: 90,
-    borderRadius: 45,
-    borderWidth: 7,
-    borderColor: colors.primary,
-    borderRightColor: "rgba(157,101,253,0.25)",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-
-  timerText: {
-    color: colors.white,
-    fontSize: 20,
-    fontWeight: "800",
-  },
-
-  timerCaption: {
-    color: "rgba(255,255,255,0.65)",
-    fontSize: 11,
+  separator: {
+    color: "rgba(255,255,255,0.4)",
   },
 
   actions: {
     flexDirection: "row",
     gap: 10,
-    marginTop: 12,
   },
 
   pauseButton: {
     flex: 1,
-    height: 48,
-    borderRadius: 16,
-    backgroundColor: "rgba(255,255,255,0.10)",
+    height: 44,
+    borderRadius: 14,
+    backgroundColor: "rgba(255,255,255,0.08)",
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
@@ -163,8 +114,8 @@ const styles = StyleSheet.create({
 
   completeButton: {
     flex: 1,
-    height: 48,
-    borderRadius: 16,
+    height: 44,
+    borderRadius: 14,
     backgroundColor: colors.primary,
     flexDirection: "row",
     alignItems: "center",
@@ -172,5 +123,8 @@ const styles = StyleSheet.create({
     gap: 8,
   },
 
-  
+  completeText: {
+    backgroundColor: colors.foreground,
+    fontWeight: "800",
+  },
 });

@@ -6,12 +6,13 @@ export default function HomeHeader() {
   return (
     <View style={styles.container}>
       <View>
-        <Text style={styles.greeting}>Good afternoon 👋</Text>
+        <Text style={styles.greeting}>Good afternoon!</Text>
         <Text style={styles.date}>Sunday, Nov 22</Text>
       </View>
 
       <View style={styles.notification}>
         <Bell color={colors.white} size={22} />
+
         <View style={styles.dot} />
       </View>
     </View>
@@ -32,19 +33,19 @@ const styles = StyleSheet.create({
   },
 
   date: {
-    color: "rgba(255,255,255,0.65)",
+    color: "rgba(255,255,255,0.6)",
     fontSize: 14,
-    marginTop: 6,
+    marginTop: 5,
   },
 
   notification: {
-    position: "relative",
     padding: 8,
+    position: "relative",
   },
 
   dot: {
     position: "absolute",
-    top: 6,
+    top: 5,
     right: 5,
     width: 8,
     height: 8,

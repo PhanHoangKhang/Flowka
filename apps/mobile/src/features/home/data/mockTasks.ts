@@ -6,6 +6,14 @@ export type Task = {
   completed: boolean;
 };
 
+export type UpcomingItem = {
+  id: string;
+  title: string;
+  date: string;
+  time: string;
+  daysLeft: number;
+};
+
 export const mockTasks: Task[] = [
   {
     id: "1",
@@ -37,9 +45,33 @@ export const mockTasks: Task[] = [
   },
   {
     id: "5",
-    title: "Prepare presentation",
-    category: "University",
-    duration: 60,
+    title: "Workout",
+    category: "Personal",
+    duration: 45,
     completed: true,
+  },
+  {
+    id: "6",
+    title: "Review Networking",
+    category: "University",
+    duration: 30,
+    completed: true,
+  },
+];
+
+export const upcomingTasks: UpcomingItem[] = [
+  {
+    id: "1",
+    title: "Java Midterm",
+    date: "Sat, Nov 29",
+    time: "9:00 AM",
+    daysLeft: 7,
+  },
+  {
+    id: "2",
+    title: "Dentist appointment",
+    date: "Wed, Nov 25",
+    time: "3:00 PM",
+    daysLeft: 3,
   },
 ];
