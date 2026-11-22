@@ -9,7 +9,8 @@ import ActiveTaskCard from "@/features/home/components/ActiveTaskCard";
 import TaskSection from "@/features/home/components/TaskSection";
 import HomeBottomNav from "@/features/home/components/HomeBottomNav";
 
-import { mockTasks } from "@/features/home/data/mockTasks";
+import { mockTasks, upcomingTasks } from "@/features/home/data/mockTasks";
+import UpcomingSection from "@/features/home/components/UpcomingSection";
 
 const WEEKDAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
@@ -43,20 +44,14 @@ function DateStrip() {
 
       <View style={styles.dateRow}>
         {week.map((date, index) => {
-          const isToday =
-            date.toDateString() === today.toDateString();
+          const isToday = date.toDateString() === today.toDateString();
 
           return (
             <View key={index} style={styles.dateItem}>
               <Text style={styles.dayLabel}>{WEEKDAYS[index]}</Text>
 
               <View style={[styles.dateNumber, isToday && styles.today]}>
-                <Text
-                  style={[
-                    styles.numberText,
-                    isToday && styles.todayText,
-                  ]}
-                >
+                <Text style={[styles.numberText, isToday && styles.todayText]}>
                   {date.getDate()}
                 </Text>
               </View>
@@ -103,6 +98,8 @@ export default function HomeScreen() {
             tasks={unfinishedTasks}
             color={colors.white}
           />
+
+          <UpcomingSection items={upcomingTasks} />
         </ScrollView>
 
         <HomeBottomNav />
@@ -131,6 +128,11 @@ const styles = StyleSheet.create({
 
   dateContainer: {
     gap: 14,
+    backgroundColor: "rgba(255,255,255,0.04)",
+    borderWidth: 1,
+    borderColor: "rgba(255,255,255,0.06)",
+    borderRadius: 20,
+    padding: 16,
   },
 
   dateHeader: {
