@@ -1,19 +1,19 @@
 import { View, Text, StyleSheet } from "react-native";
 import { Bell } from "lucide-react-native";
+
 import { colors } from "@/constants/color";
 
 export default function HomeHeader() {
   return (
     <View style={styles.container}>
-      <View>
-        <Text style={styles.greeting}>Good afternoon!</Text>
-        <Text style={styles.date}>Sunday, Nov 22</Text>
+      <View style={styles.content}>
+        <Text style={styles.greeting}>Good afternoon, Khang 👋</Text>
+        <Text style={styles.subtitle}>Let's make today count.</Text>
       </View>
 
       <View style={styles.notification}>
-        <Bell color={colors.white} size={22} />
-
-        <View style={styles.dot} />
+        <Bell size={22} color={colors.white} />
+        <View style={styles.notificationDot} />
       </View>
     </View>
   );
@@ -26,27 +26,32 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
 
-  greeting: {
-    color: colors.white,
-    fontSize: 22,
-    fontWeight: "700",
+  content: {
+    flex: 1,
+    gap: 6,
   },
 
-  date: {
-    color: "rgba(255,255,255,0.6)",
-    fontSize: 14,
-    marginTop: 5,
+  greeting: {
+    color: colors.white,
+    fontSize: 26,
+    fontWeight: "800",
+  },
+
+  subtitle: {
+    color: "rgba(255,255,255,0.55)",
+    fontSize: 13,
   },
 
   notification: {
-    padding: 8,
     position: "relative",
+    padding: 10,
+    marginLeft: 8,
   },
 
-  dot: {
+  notificationDot: {
     position: "absolute",
-    top: 5,
-    right: 5,
+    top: 7,
+    right: 7,
     width: 8,
     height: 8,
     borderRadius: 4,

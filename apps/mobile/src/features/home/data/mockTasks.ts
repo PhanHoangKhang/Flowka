@@ -4,6 +4,8 @@ export type Task = {
   category: string;
   duration: number;
   completed: boolean;
+  startTime?: string;
+  endTime?: string;
 };
 
 export type UpcomingItem = {
@@ -21,6 +23,8 @@ export const mockTasks: Task[] = [
     category: "University",
     duration: 30,
     completed: false,
+    startTime: "11:00",
+    endTime: "11:30",
   },
   {
     id: "2",
@@ -28,6 +32,8 @@ export const mockTasks: Task[] = [
     category: "University",
     duration: 45,
     completed: false,
+    startTime: "14:00",
+    endTime: "14:45",
   },
   {
     id: "3",
@@ -35,6 +41,8 @@ export const mockTasks: Task[] = [
     category: "Personal",
     duration: 20,
     completed: true,
+    startTime: "09:00",
+    endTime: "09:20",
   },
   {
     id: "4",
@@ -49,6 +57,8 @@ export const mockTasks: Task[] = [
     category: "Personal",
     duration: 45,
     completed: true,
+    startTime: "07:00",
+    endTime: "07:45",
   },
   {
     id: "6",

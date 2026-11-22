@@ -1,5 +1,10 @@
 import { View, Text, StyleSheet } from "react-native";
-import { CircleCheck, Circle } from "lucide-react-native";
+import {
+  ListChecks,
+  CheckCircle2,
+  XCircle,
+} from "lucide-react-native";
+
 import { colors } from "@/constants/color";
 
 type Props = {
@@ -26,33 +31,30 @@ export default function DailyProgress({ completed, total }: Props) {
           </Text>
 
           <View style={styles.track}>
-            <View
-              style={[
-                styles.fill,
-                { width: `${percentage}%` },
-              ]}
-            />
+            <View style={[styles.fill, { width: `${percentage}%` }]} />
           </View>
         </View>
       </View>
 
       <View style={styles.stats}>
         <StatItem
-          icon={<Circle color={colors.white} size={18} />}
+          icon={<ListChecks size={17} color="rgba(255,255,255,0.65)" />}
           value={total}
-          label="Total tasks"
+          label="Total"
         />
 
         <StatItem
-          icon={<CircleCheck color={colors.primary} size={18} />}
+          icon={<CheckCircle2 size={17} color="#4ADE80" />}
           value={completed}
           label="Completed"
+          color="#4ADE80"
         />
 
         <StatItem
-          icon={<Circle color={colors.white} size={18} />}
+          icon={<XCircle size={17} color="#F87171" />}
           value={incomplete}
-          label="Incomplete"
+          label="To do"
+          color="#F87171"
         />
       </View>
     </View>
@@ -63,16 +65,20 @@ function StatItem({
   icon,
   value,
   label,
+  color,
 }: {
   icon: React.ReactNode;
   value: number;
   label: string;
+  color?: string;
 }) {
   return (
     <View style={styles.stat}>
       {icon}
 
-      <Text style={styles.statValue}>{value}</Text>
+      <Text style={[styles.statValue, color && { color }]}>
+        {value}
+      </Text>
 
       <Text style={styles.statLabel}>{label}</Text>
     </View>
@@ -141,30 +147,32 @@ const styles = StyleSheet.create({
 
   stats: {
     flexDirection: "row",
-    marginTop: 16,
     gap: 8,
+    marginTop: 16,
   },
 
   stat: {
     flex: 1,
-    borderRadius: 14,
+    minHeight: 90,
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 6,
     backgroundColor: "rgba(255,255,255,0.04)",
     borderWidth: 1,
     borderColor: "rgba(255,255,255,0.06)",
-    alignItems: "center",
-    justifyContent: "center",
-    paddingVertical: 12,
-    gap: 5,
+    borderRadius: 16,
+    paddingVertical: 10,
   },
 
   statValue: {
     color: colors.white,
-    fontSize: 16,
-    fontWeight: "700",
+    fontSize: 20,
+    fontWeight: "800",
   },
 
   statLabel: {
     color: "rgba(255,255,255,0.65)",
     fontSize: 11,
+    textAlign: "center",
   },
 });

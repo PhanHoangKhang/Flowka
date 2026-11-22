@@ -4,7 +4,9 @@ import {
   CalendarDays,
   ChartNoAxesColumnIncreasing,
   UserRound,
+  Plus,
 } from "lucide-react-native";
+
 import { colors } from "@/constants/color";
 
 const tabs = [
@@ -16,47 +18,64 @@ const tabs = [
 
 export default function HomeBottomNav() {
   return (
-    <View style={styles.container}>
-      {tabs.map(({ label, icon: Icon, active }) => (
-        <View key={label} style={styles.tab}>
-          <View style={[styles.iconContainer, active && styles.active]}>
-            <Icon
-              size={21}
-              color={active ? colors.white : "rgba(255,255,255,0.65)"}
-            />
-          </View>
+    <View style={styles.wrapper}>
+      <View style={styles.container}>
+        {tabs.map(({ label, icon: Icon, active }) => (
+          <View key={label} style={styles.tab}>
+            <View style={[styles.iconContainer, active && styles.active]}>
+              <Icon
+                size={20}
+                color={active ? colors.white : "rgba(255,255,255,0.65)"}
+              />
+            </View>
 
-          <Text style={[styles.label, active && styles.activeLabel]}>
-            {label}
-          </Text>
-        </View>
-      ))}
+            <Text style={[styles.label, active && styles.activeLabel]}>
+              {label}
+            </Text>
+          </View>
+        ))}
+      </View>
+
+      <View style={styles.addButton}>
+        <Plus size={28} color={colors.white} />
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  wrapper: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 12,
+    marginHorizontal: 20,
+    marginBottom: 10,
+  },
+
   container: {
+    flex: 1,
     flexDirection: "row",
     justifyContent: "space-around",
-    paddingTop: 10,
-    paddingBottom: 8,
-    backgroundColor: "#12121F",
-    borderTopWidth: 1,
-    borderTopColor: "rgba(255,255,255,0.08)",
+    alignItems: "center",
+    backgroundColor: "rgba(255,255,255,0.06)",
+    borderWidth: 1,
+    borderColor: "rgba(255,255,255,0.08)",
+    borderRadius: 30,
+    paddingVertical: 8,
+    paddingHorizontal: 4,
   },
 
   tab: {
     alignItems: "center",
     justifyContent: "center",
-    gap: 5,
     flex: 1,
+    gap: 3,
   },
 
   iconContainer: {
-    width: 45,
-    height: 40,
-    borderRadius: 14,
+    width: 36,
+    height: 32,
+    borderRadius: 12,
     alignItems: "center",
     justifyContent: "center",
   },
@@ -67,11 +86,20 @@ const styles = StyleSheet.create({
 
   label: {
     color: "rgba(255,255,255,0.55)",
-    fontSize: 11,
+    fontSize: 10,
   },
 
   activeLabel: {
     color: colors.white,
     fontWeight: "700",
+  },
+
+  addButton: {
+    width: 54,
+    height: 54,
+    borderRadius: 27,
+    backgroundColor: colors.primary,
+    alignItems: "center",
+    justifyContent: "center",
   },
 });

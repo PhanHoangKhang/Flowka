@@ -1,130 +1,167 @@
-import { View, Text, StyleSheet } from "react-native";
-import { Clock, Pause, Check } from "lucide-react-native";
+import {
+  View,
+  Text,
+  ScrollView,
+  StyleSheet,
+} from "react-native";
+import { Clock, Play } from "lucide-react-native";
 import { colors } from "@/constants/color";
+
+type ActiveTask = {
+  id: string;
+  title: string;
+  category: string;
+  duration: number;
+  remainingTime: string;
+};
+
+const activeTasks: ActiveTask[] = [
+  {
+    id: "1",
+    title: "Study Java Collections",
+    category: "University",
+    duration: 45,
+    remainingTime: "24:18 left",
+  },
+  {
+    id: "2",
+    title: "Design workout plan",
+    category: "Personal",
+    duration: 30,
+    remainingTime: "18:42 left",
+  },
+];
 
 export default function ActiveTaskCard() {
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <View style={styles.status}>
-          <View style={styles.dot} />
-          <Text style={styles.statusText}>In Progress</Text>
-        </View>
-      </View>
-
-      <Text style={styles.title}>Study Java Collections</Text>
-
-      <View style={styles.meta}>
-        <Clock size={14} color="rgba(255,255,255,0.55)" />
-        <Text style={styles.metaText}>45 min</Text>
-        <Text style={styles.separator}>·</Text>
-        <Text style={styles.metaText}>24:18 left</Text>
-      </View>
-
-      <View style={styles.actions}>
-        <View style={styles.pauseButton}>
-          <Pause size={16} color={colors.white} />
-          <Text style={styles.pauseText}>Pause</Text>
+      <View style={styles.sectionHeader}>
+        <View style={styles.heading}>
+          <Play size={16} color={colors.primary} fill={colors.primary} />
+          <Text style={styles.sectionTitle}>In Progress</Text>
         </View>
 
-        <View style={styles.completeButton}>
-          <Check size={17} color={colors.foreground} />
-          <Text style={styles.completeText}>Complete</Text>
-        </View>
+        <Text style={styles.count}>{activeTasks.length}</Text>
       </View>
+
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={styles.list}
+      >
+        {activeTasks.map((task) => (
+          <View key={task.id} style={styles.card}>
+            <View style={styles.cardHeader}>
+              <Text style={styles.category}>{task.category}</Text>
+            </View>
+
+            <Text style={styles.title}>{task.title}</Text>
+
+            <View style={styles.meta}>
+              <Clock size={14} color="rgba(255,255,255,0.6)" />
+              <Text style={styles.metaText}>{task.duration} min</Text>
+              <Text style={styles.metaText}>·</Text>
+              <Text style={styles.metaText}>{task.remainingTime}</Text>
+            </View>
+
+            <View style={styles.progressTrack}>
+              <View style={styles.progressFill} />
+            </View>
+          </View>
+        ))}
+      </ScrollView>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "rgba(157,101,253,0.09)",
-    borderWidth: 1,
-    borderColor: "rgba(157,101,253,0.18)",
-    borderRadius: 20,
-    padding: 16,
     gap: 12,
   },
 
-  header: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-
-  status: {
+  sectionHeader: {
     flexDirection: "row",
     alignItems: "center",
-    gap: 7,
+    gap: 8,
   },
 
-  dot: {
-    width: 8,
-    height: 8,
-    borderRadius: 4,
-    backgroundColor: colors.primary,
+  heading: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 8,
   },
 
-  statusText: {
-    color: colors.primary,
-    fontWeight: "700",
-    fontSize: 13,
-  },
-
-  title: {
+  sectionTitle: {
     color: colors.white,
     fontSize: 17,
     fontWeight: "700",
   },
 
+  count: {
+    color: colors.primary,
+    fontSize: 12,
+    fontWeight: "700",
+    backgroundColor: "rgba(157,101,253,0.12)",
+    paddingHorizontal: 8,
+    paddingVertical: 3,
+    borderRadius: 20,
+  },
+
+  list: {
+    gap: 12,
+    paddingRight: 4,
+  },
+
+  card: {
+    width: 250,
+    borderRadius: 20,
+    padding: 16,
+    backgroundColor: "rgba(255,255,255,0.04)",
+    borderWidth: 1,
+    borderColor: "rgba(255,255,255,0.08)",
+    gap: 12,
+  },
+
+  cardHeader: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+
+  category: {
+    color: "rgba(255,255,255,0.55)",
+    fontSize: 12,
+  },
+
+  title: {
+    color: colors.white,
+    fontSize: 16,
+    fontWeight: "700",
+    minHeight: 40,
+  },
+
   meta: {
     flexDirection: "row",
     alignItems: "center",
-    gap: 7,
+    gap: 6,
   },
 
   metaText: {
-    color: "rgba(255,255,255,0.65)",
-    fontSize: 13,
+    color: "rgba(255,255,255,0.6)",
+    fontSize: 12,
   },
 
-  separator: {
-    color: "rgba(255,255,255,0.4)",
-  },
-
-  actions: {
-    flexDirection: "row",
-    gap: 10,
-  },
-
-  pauseButton: {
-    flex: 1,
-    height: 44,
-    borderRadius: 14,
+  progressTrack: {
+    height: 6,
     backgroundColor: "rgba(255,255,255,0.08)",
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-    gap: 8,
+    borderRadius: 6,
+    overflow: "hidden",
   },
 
-  pauseText: {
-    color: colors.white,
-    fontWeight: "700",
-  },
-
-  completeButton: {
-    flex: 1,
-    height: 44,
-    borderRadius: 14,
+  progressFill: {
+    width: "65%",
+    height: "100%",
     backgroundColor: colors.primary,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-    gap: 8,
-  },
-
-  completeText: {
-    backgroundColor: colors.foreground,
-    fontWeight: "800",
+    borderRadius: 6,
   },
 });

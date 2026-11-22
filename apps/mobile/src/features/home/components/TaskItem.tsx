@@ -1,5 +1,6 @@
 import { View, Text, StyleSheet } from "react-native";
-import { Circle, CircleCheck, CalendarDays } from "lucide-react-native";
+import { Circle, CircleCheck, Clock } from "lucide-react-native";
+
 import { colors } from "@/constants/color";
 import type { Task } from "../data/mockTasks";
 
@@ -7,14 +8,29 @@ type Props = {
   task: Task;
 };
 
+function formatTime(time?: string) {
+  if (!time) return undefined;
+
+  const [hourString, minute] = time.split(":");
+  const hour = Number(hourString);
+  const suffix = hour >= 12 ? "PM" : "AM";
+  const formattedHour = hour % 12 || 12;
+
+  return `${formattedHour}:${minute} ${suffix}`;
+}
+
 export default function TaskItem({ task }: Props) {
+  const timeRange =
+    task.startTime && task.endTime
+      ? `${formatTime(task.startTime)} – ${formatTime(task.endTime)}`
+      : undefined;
+
   return (
     <View style={styles.container}>
       {task.completed ? (
         <CircleCheck
           size={22}
-          color={colors.primary}
-          fill={colors.primary}
+          color="#4ADE80"
         />
       ) : (
         <Circle size={22} color="rgba(255,255,255,0.7)" />
@@ -31,9 +47,11 @@ export default function TaskItem({ task }: Props) {
         </Text>
 
         <View style={styles.meta}>
-          <CalendarDays size={13} color="rgba(255,255,255,0.55)" />
+          <Clock size={13} color="rgba(255,255,255,0.55)" />
 
-          <Text style={styles.metaText}>Today · {task.duration} min</Text>
+          <Text style={styles.metaText}>
+            {timeRange ?? `${task.duration} min`}
+          </Text>
         </View>
       </View>
 
@@ -57,6 +75,7 @@ const styles = StyleSheet.create({
 
   content: {
     flex: 1,
+    gap: 5,
   },
 
   title: {
@@ -74,7 +93,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     gap: 5,
-    marginTop: 6,
   },
 
   metaText: {
