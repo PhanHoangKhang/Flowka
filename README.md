@@ -15,7 +15,7 @@ Flowka is a daily execution companion that helps people keep track of what they 
 ## What it does
 
 - **Daily overview:** See what you've completed, what you're working on, and what is coming up next without having to check multiple places.
-- **Daily Planning:** Plan your day by adding tasks, organizing priorities, and deciding when to work on each activity.
+- **Daily planning:** Plan your day by adding tasks, organizing priorities, and deciding when to work on each activity.
 - **Track what you're doing:** Keep your current task visible so you always know what you're working on and where you are in your day.
 - **Know what's next:** See upcoming tasks and make it easier to move from one activity to another without spending too much time figuring out what to do next.
 - **Reminders:** Get reminded about scheduled tasks so important activities don't slip your mind.
@@ -24,11 +24,11 @@ Flowka is a daily execution companion that helps people keep track of what they 
 
 ## The idea behind Flowka
 
-It's easy to plan a productive day. The harder part is actually following that plan. Tasks get interrupted, unexpected things come up, priorities change, and sometimes we forget what we were supposed to do next. Even when we have a task list, it doesn't always help us keep track of where we are in the day or get back on track after things go differently than expected.
+It's easy to plan a productive day. The harder part is actually following that plan. Tasks get interrupted, unexpected things come up, priorities change, and sometimes we simply forget what we were supposed to do next. Even with a task list, it's easy to lose track of what we've done, what we're currently working on, or where to pick up again.
 
-That's why we built Flowka. Instead of just giving users another place to write down tasks, Flowka helps them stay connected to their day as they go. From planning tasks in the morning to tracking what's currently being done, seeing what's coming next, and revisiting unfinished work, everything is designed to help users keep moving without losing track of their plans.
+That's why we built Flowka. We wanted something that goes beyond simply listing tasks and helps us stay connected to our day as we go. Flowka brings daily planning, task tracking, reminders, and unfinished tasks together, so users can see where they stand and what's coming next without constantly reorganizing their plans.
 
-Plans don't always go as expected, and that's okay. Flowka is meant to help users pick up where they left off, adjust when needed, and make progress one task at a time.
+Plans don't always go as expected, and that's okay. Flowka helps users pick up where they left off, adjust their plans when needed, and keep making progress one task at a time.
 
 **Plan → Execute → Review → Continue**
 
