@@ -10,6 +10,7 @@ import TaskSection from "@/features/home/components/TaskSection";
 
 import { mockTasks, upcomingTasks } from "@/features/home/data/mockTasks";
 import UpcomingSection from "@/features/home/components/UpcomingSection";
+import HomeIntro from "@/features/home/components/HomeIntro";
 
 const WEEKDAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
@@ -81,7 +82,7 @@ export default function HomeScreen() {
           showsVerticalScrollIndicator={false}
           contentContainerStyle={styles.scrollContent}
         >
-          <HomeHeader />
+          <HomeIntro />
 
           <DateStrip />
 

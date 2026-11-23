@@ -7,7 +7,7 @@ export const colors = {
   pink: "#f770cd",
 
   background: "#FFFFFF",
-  foreground: "#12121F",
+  foreground: "#12121f",
 
   accent: "#ffe45c",
 
