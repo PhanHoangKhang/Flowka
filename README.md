@@ -2,6 +2,8 @@
 
 > Turn your plans into progress, one day at a time.
 
+Flowka is a daily execution companion that helps people keep track of what they have done, what they are working on, and what they need to do next. It brings planning, task execution, reminders, and activity history into one workflow.
+
 <p align="center">
   <img src="https://img.shields.io/badge/React_Native-Mobile-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React Native" />
   <img src="https://img.shields.io/badge/Expo-Framework-000020?style=for-the-badge&logo=expo&logoColor=white" alt="Expo" />
@@ -9,8 +11,6 @@
   <img src="https://img.shields.io/badge/Expo_Router-Navigation-000020?style=for-the-badge&logo=expo&logoColor=white" alt="Expo Router" />
   <img src="https://img.shields.io/badge/Lucide-Icons-F56565?style=for-the-badge&logo=lucide&logoColor=white" alt="Lucide" />
 </p>
-
-Flowka is a daily execution companion that helps people keep track of what they have done, what they are working on, and what they need to do next. It brings planning, task execution, reminders, and activity history into one workflow.
 
 ## What it does
 
