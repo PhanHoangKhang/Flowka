@@ -28,21 +28,13 @@ export default function TaskItem({ task }: Props) {
   return (
     <View style={styles.container}>
       {task.completed ? (
-        <CircleCheck
-          size={22}
-          color="#4ADE80"
-        />
+        <CircleCheck size={22} color="#4ADE80" />
       ) : (
         <Circle size={22} color="rgba(255,255,255,0.7)" />
       )}
 
       <View style={styles.content}>
-        <Text
-          style={[
-            styles.title,
-            task.completed && styles.completedTitle,
-          ]}
-        >
+        <Text style={[styles.title, task.completed && styles.completedTitle]}>
           {task.title}
         </Text>
 
@@ -101,14 +93,15 @@ const styles = StyleSheet.create({
   },
 
   category: {
-    backgroundColor: "rgba(157,101,253,0.16)",
+    backgroundColor: colors.accent,
     paddingHorizontal: 10,
     paddingVertical: 6,
     borderRadius: 20,
   },
 
   categoryText: {
-    color: "rgba(255,255,255,0.8)",
+    color: colors.text,
     fontSize: 11,
+    fontWeight: "700",
   },
 });

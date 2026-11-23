@@ -7,7 +7,6 @@ import HomeHeader from "@/features/home/components/HomeHeader";
 import DailyProgress from "@/features/home/components/DailyProgress";
 import ActiveTaskCard from "@/features/home/components/ActiveTaskCard";
 import TaskSection from "@/features/home/components/TaskSection";
-import HomeBottomNav from "@/features/home/components/HomeBottomNav";
 
 import { mockTasks, upcomingTasks } from "@/features/home/data/mockTasks";
 import UpcomingSection from "@/features/home/components/UpcomingSection";
@@ -101,8 +100,6 @@ export default function HomeScreen() {
 
           <UpcomingSection items={upcomingTasks} />
         </ScrollView>
-
-        <HomeBottomNav />
       </View>
     </SafeAreaView>
   );

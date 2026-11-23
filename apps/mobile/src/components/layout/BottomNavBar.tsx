@@ -16,7 +16,7 @@ const tabs = [
   { label: "Profile", icon: UserRound, active: false },
 ];
 
-export default function HomeBottomNav() {
+export default function BottomNavBar() {
   return (
     <View style={styles.wrapper}>
       <View style={styles.container}>
@@ -34,10 +34,6 @@ export default function HomeBottomNav() {
             </Text>
           </View>
         ))}
-      </View>
-
-      <View style={styles.addButton}>
-        <Plus size={28} color={colors.white} />
       </View>
     </View>
   );

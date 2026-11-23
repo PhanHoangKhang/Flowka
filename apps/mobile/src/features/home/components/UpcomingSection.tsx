@@ -98,7 +98,6 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 14,
-    backgroundColor: "rgba(157,101,253,0.12)",
     alignItems: "center",
     justifyContent: "center",
   },
@@ -120,14 +119,14 @@ const styles = StyleSheet.create({
   },
 
   daysBadge: {
-    backgroundColor: "rgba(157,101,253,0.15)",
+    backgroundColor: colors.pink,
     paddingHorizontal: 10,
     paddingVertical: 6,
     borderRadius: 20,
   },
 
   daysText: {
-    color: colors.primary,
+    color: colors.white,
     fontSize: 11,
     fontWeight: "700",
   },

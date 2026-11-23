@@ -4,10 +4,12 @@ export const colors = {
   primaryDark: "#7741D9",
   primarySoft: "#F1E9FF",
 
+  pink: "#f770cd",
+
   background: "#FFFFFF",
   foreground: "#12121F",
 
-  accent: "#FFE66D",
+  accent: "#ffe45c",
 
   text: "#12121F",
   textSecondary: "#8C8999",
